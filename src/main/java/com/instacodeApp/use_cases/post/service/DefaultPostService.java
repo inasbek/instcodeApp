@@ -61,6 +61,12 @@ public class DefaultPostService implements PostService{
         postRepository.delete(post);
     }
 
+    @Override
+    public List<PostDto> getPostsByName(String username) {
+        List<Post> posts = this.postRepository.findPostsByName(username);
+        return posts.stream().map(post -> mapToDto(post)).collect(Collectors.toList());
+    }
+
     private PostDto mapToDto(Post post){
         return modelMapper.map(post, PostDto.class);
     }
