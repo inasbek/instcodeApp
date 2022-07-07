@@ -1,12 +1,10 @@
 package com.instacodeApp.use_cases.follow.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Data
 @Getter
 @Setter
 @AllArgsConstructor

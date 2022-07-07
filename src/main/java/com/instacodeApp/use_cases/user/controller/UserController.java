@@ -33,6 +33,16 @@ public class UserController {
         return this.userService.getAllUsers();
     }
 
+    /*@GetMapping("/getUserByName/{username}")
+    public ResponseEntity<UserDto> getUserByName(@PathVariable(name="username") String username){
+        return new ResponseEntity<>(this.userService.getUserByName(username), HttpStatus.OK);
+    }*/
+
+    @GetMapping("/getByUsername/{username}")
+    public ResponseEntity<UserDto> getByUsername(@PathVariable(name="username")String username){
+        return new ResponseEntity<>(this.userService.getByUsername(username),HttpStatus.OK);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> updateUser(@PathVariable(name = "id") long userId, @RequestBody UserDto userDto){
         return new ResponseEntity<>(this.userService.updateUser(userId, userDto), HttpStatus.OK);
