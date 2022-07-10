@@ -2,7 +2,7 @@ package com.instacodeApp.use_cases.authentication.security.jwt;
 
 public class JwtAuthResponse {
     private String accessToken;
-    private String tokenType="Bearer";
+    private String tokenType="Bearer ";
     private String username;
 
     public JwtAuthResponse(String accessToken, String username) {

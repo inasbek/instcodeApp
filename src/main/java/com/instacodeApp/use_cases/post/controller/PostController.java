@@ -22,7 +22,6 @@ public class PostController {
         this.postService = postService;
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping public ResponseEntity<PostDto> createPost(@Valid @RequestBody PostDto postDto) {
         return new ResponseEntity<>(this.postService.createPost(postDto), HttpStatus.CREATED);
     }
@@ -41,7 +40,6 @@ public class PostController {
         return this.postService.getAllPosts();
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<PostDto> updatePost(@PathVariable(name = "id") long postId,@Valid @RequestBody PostDto postDto){
         return new ResponseEntity<>(this.postService.updatePost(postDto, postId), HttpStatus.OK);
