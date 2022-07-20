@@ -28,7 +28,7 @@ public class Post {
     @Column(name = "caption", nullable = false)
     private String caption;
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code", nullable = false, length = 65555)
     private String code;
 
     @Column(name = "language", nullable = false)
