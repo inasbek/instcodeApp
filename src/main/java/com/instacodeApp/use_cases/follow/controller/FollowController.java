@@ -26,6 +26,17 @@ public class FollowController {
         return new ResponseEntity<>(this.followService.createFollow(followDto), HttpStatus.CREATED);
     }
 
+    @PostMapping("/checkFollow")
+    public boolean checkFollow(@RequestBody FollowDto followDto){
+        List<FollowDto> list = this.followService.getFollowsByFollowerUserName(followDto.followerUserName);
+        for (FollowDto dto : list) {
+            if (followDto.followedUserName.equals(dto.followedUserName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<FollowDto> getFollowById(@PathVariable(name = "id") long id){

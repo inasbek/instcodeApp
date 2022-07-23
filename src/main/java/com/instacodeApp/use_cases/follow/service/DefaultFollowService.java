@@ -73,6 +73,7 @@ public class DefaultFollowService implements FollowService{
         return follows.stream().map(follow -> mapToDto(follow)).collect(Collectors.toList());
     }
 
+
     private FollowDto mapToDto(Follow follow){
         return modelMapper.map(follow, FollowDto.class);
     }

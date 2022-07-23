@@ -1,5 +1,6 @@
 package com.instacodeApp.use_cases.follow.service;
 
+import com.instacodeApp.use_cases.follow.domain.Follow;
 import com.instacodeApp.use_cases.follow.exposition.FollowDto;
 
 import java.util.List;
