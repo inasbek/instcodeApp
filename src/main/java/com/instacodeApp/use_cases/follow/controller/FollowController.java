@@ -37,6 +37,17 @@ public class FollowController {
         return false;
     }
 
+    @PostMapping("/deleteFollow")
+    public void deleteFollow(@RequestBody FollowDto followDto){
+        List<FollowDto> list = this.followService.getFollowsByFollowerUserName(followDto.followerUserName);
+        for (FollowDto dto : list) {
+            if (followDto.followedUserName.equals(dto.followedUserName)) {
+                deleteFollowById(dto.id);
+            }
+        }
+
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<FollowDto> getFollowById(@PathVariable(name = "id") long id){

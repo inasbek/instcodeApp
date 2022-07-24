@@ -9,6 +9,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @CrossOrigin
@@ -32,12 +34,16 @@ public class PostController {
 
     @GetMapping("/user/{username}")
     public List<PostDto> getPostByName(@PathVariable(name="username") String username){
-        return this.postService.getPostsByName(username);
+        List<PostDto> result = this.postService.getPostsByName(username);
+        Collections.reverse(result);
+        return result;
     }
 
     @GetMapping
     public List<PostDto> getAllPosts(){
-        return this.postService.getAllPosts();
+        List<PostDto> result = this.postService.getAllPosts();
+        Collections.reverse(result);
+        return result;
     }
 
     @PutMapping("/{id}")
