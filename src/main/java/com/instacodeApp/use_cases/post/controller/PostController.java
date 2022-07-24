@@ -34,16 +34,16 @@ public class PostController {
 
     @GetMapping("/user/{username}")
     public List<PostDto> getPostByName(@PathVariable(name="username") String username){
-        List<PostDto> result = this.postService.getPostsByName(username);
-        Collections.reverse(result);
-        return result;
+        //List<PostDto> result = this.postService.getPostsByName(username);
+        //Collections.reverse(result);
+        return this.postService.getPostsByName(username);
     }
 
     @GetMapping
     public List<PostDto> getAllPosts(){
-        List<PostDto> result = this.postService.getAllPosts();
-        Collections.reverse(result);
-        return result;
+        //List<PostDto> result = this.postService.getAllPosts();
+        //Collections.reverse(result);
+        return this.postService.getAllPosts();
     }
 
     @PutMapping("/{id}")

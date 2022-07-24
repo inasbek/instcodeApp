@@ -37,7 +37,7 @@ public class FollowController {
         return false;
     }
 
-    @PostMapping("/deleteFollow")
+    /*@PostMapping("/deleteFollow")
     public void deleteFollow(@RequestBody FollowDto followDto){
         List<FollowDto> list = this.followService.getFollowsByFollowerUserName(followDto.followerUserName);
         for (FollowDto dto : list) {
@@ -46,7 +46,7 @@ public class FollowController {
             }
         }
 
-    }
+    }*/
 
 
     @GetMapping("/{id}")
